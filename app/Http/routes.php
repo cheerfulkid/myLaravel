@@ -1,10 +1,5 @@
 <?php
-/**
- * 接收表單來新增任務
- */
-Route::post('/task', function (Request $request) {
-    //
-});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,7 +10,19 @@ Route::post('/task', function (Request $request) {
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/**
+ * 接收表單來新增任務
+ */
+Route::post('/task', function (Request $request) {
+    //
+});
 Route::get('/', function () {
 //    return view('welcome');
+});
+
+/**
+ * 刪除任務
+ */
+Route::delete('/task/{id}', function ($id) {
+    //
 });
