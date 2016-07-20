@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * 接收表單來新增任務
+ */
+Route::post('/task', function (Request $request) {
+    //
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,5 +17,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome');
 });
