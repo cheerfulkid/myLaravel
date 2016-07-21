@@ -11,7 +11,10 @@ Route::get('/', function () {
  * 接收表單來新增任務
  */
 Route::post('/task', function (Request $request) {
-    return "OK";
+//    return "OK";
+    $task = new Task;
+    $task->name = $request->nameFront;
+    $task->save();
 });
 
 /**
