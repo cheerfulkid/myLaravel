@@ -8,10 +8,20 @@ Route::get('/', function () {
 });
 
 /**
- * 接收表單來新增任務
+ * 增加新的任務
  */
 Route::post('/task', function (Request $request) {
-//    return "OK";
+    $validator = Validator::make($request->all(),
+        ["name" => "required|max:255"]
+    );
+
+    if($validator->fails())
+    {
+        return redirect("/")
+            ->withInput()
+            ->withErrors($validator);
+    }
+
     $task = new Task;
     $task->name = $request->nameFront;
     $task->save();

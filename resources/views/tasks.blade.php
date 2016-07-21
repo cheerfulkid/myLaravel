@@ -3,32 +3,43 @@
 @section('content_1')
 
     <!-- Bootstrap 樣板... -->
+    <div class="container">
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="panel panel-default">
 
-    <div class="panel-body">
+                <div class="panel-heading">
+                    New Task
+                </div>
+                <div class="panel-body">
+                    <!-- TODO: 顯示驗證錯誤 -->
+                @include("common.errors")
+                <!-- 新增任務用的表單 -->
+                    <form action={{url("/task")}} method="POST" class="form-horizontal">
+                    {{ csrf_field() }}
 
-        <!-- 新增任務用的表單 -->
-        <form action={{url("/task")}} method="POST" class="form-horizontal">
-            {{ csrf_field() }}
+                    <!-- 任務名稱 -->
+                        <div class="form-group">
+                            <label for="task" class="col-sm-3 control-label">Task</label>
 
-            <!-- 任務名稱 -->
-            <div class="form-group">
-                <label for="task" class="col-sm-3 control-label">Task</label>
+                            <div class="col-sm-6">
+                                <input type="text" name="nameFront" id="task-name" class="form-control">
+                            </div>
+                        </div>
 
-                <div class="col-sm-6">
-                    <input type="text" name="nameFront" id="task-name" class="form-control">
+                        <!-- 增加任務按鈕-->
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-plus"></i>增加任務
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <!-- 增加任務按鈕-->
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
-                        <i class="fa fa-plus"></i>增加任務</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
-    
-    
+
+
     <!-- 目前任務 -->
 @endsection
